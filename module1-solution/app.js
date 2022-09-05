@@ -1,13 +1,13 @@
 (function () {
 'use strict';
 
-angular.module('ItemCalculator', [])
+angular.module('LunchCheck', [])
 
-.controller('ItemCalculatorController', ItemCalculatorController);
+.controller('LunchCheckController', LunchCheckController);
 
-  ItemCalculatorController.$inject = ['$scope'];
+  LunchCheckController.$inject = ['$scope'];
 
-  function ItemCalculatorController ($scope) {
+  function LunchCheckController ($scope) {
   $scope.item = "";
   $scope.message = "";
   $scope.totalValue = 0;
