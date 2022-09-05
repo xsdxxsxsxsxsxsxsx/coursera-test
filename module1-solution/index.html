@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>body { font-size: 1.3em; }</style>
+    <title>Item Calculator</title>
+  </head>
+  <body ng-app="ItemCalculator">
+    <h1>Item Calculator</h1>
+    <div ng-controller="ItemCalculatorController">
+      {{message}}
+      <div>
+        Items:
+        <input type="text"
+          ng-model="item"
+          ng-keyup="displayNumeric();">
+        <button ng-click="checkItems()">Check If Too Much</button>
+      </div>
+    </div>
+  </body>
+</html>
