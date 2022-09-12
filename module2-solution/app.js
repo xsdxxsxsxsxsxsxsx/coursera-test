@@ -14,7 +14,7 @@ function ToBuyController(ShoppingListService) {
     ShoppingListService.buy(itemIndex);
   };
   list1.isSold=function (){
-    return ShoppingListService.getSold();
+    return  ShoppingListService.getSold();
   }
 }
 
