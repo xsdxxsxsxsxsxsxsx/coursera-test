@@ -13,7 +13,9 @@ function ToBuyController(ShoppingListService) {
   list1.Buy = function (itemIndex) {
     ShoppingListService.buy(itemIndex);
   };
-  list1.sold=ShoppingListService.sold;
+  list1.isSold=function (){
+   return ShoppingListService.getSold();
+ }
 }
 
 AlreadyBoughtController.$inject = ['ShoppingListService'];
@@ -21,6 +23,9 @@ function AlreadyBoughtController(ShoppingListService) {
   var list2=this;
   list2.items2 = ShoppingListService.getItemsBought();
   list2.nothing=ShoppingListService.nothing;
+  list2.isNothing=function (){
+    return ShoppingListService.getNothig();
+  }
 }
 
 function ShoppingListService() {
@@ -51,16 +56,28 @@ function ShoppingListService() {
     }
   ];
   var itemsBought = [];
-
+  var nothing=true;
+    var sold=false;
   service.buy = function (index) {
+    nothing=false;
     itemsBought.push(itemsToBuy[index]);
     itemsToBuy.splice(index, 1);
+    if(itemsToBuy.length==0){
+      sold=true;
+      console.log("Hola")
+    }
   };
   service.getItemsToBuy = function () {
     return itemsToBuy;
   };
   service.getItemsBought = function () {
     return itemsBought;
+  };
+  service.getSold = function () {
+    return sold;
+  };
+  service.getNothig = function () {
+    return nothing;
   };
 }
 
