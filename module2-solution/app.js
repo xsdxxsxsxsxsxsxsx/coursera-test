@@ -56,16 +56,16 @@ function ShoppingListService() {
     }
   ];
   var itemsBought = [];
-  var nothing=true;
-  var sold=false;
+  // var nothing=true;
+  // var sold=false;
   service.buy = function (index) {
-    nothing=false;
+    // nothing=false;
     itemsBought.push(itemsToBuy[index]);
     itemsToBuy.splice(index, 1);
-    if(itemsToBuy.length==0){
-      sold=true;
-      console.log("Hola")
-    }
+    // if(itemsToBuy.length==0){
+    //   sold=true;
+    //   console.log("Hola")
+    // }
   };
   service.getItemsToBuy = function () {
     return itemsToBuy;
@@ -74,10 +74,10 @@ function ShoppingListService() {
     return itemsBought;
   };
   service.getSold = function () {
-    return sold;
+    return itemsToBuy.length==0;
   };
   service.getNothig = function () {
-    return nothing;
+    return itemsBought.length!=0;
   };
 }
 
